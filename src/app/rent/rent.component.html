@@ -1,0 +1,62 @@
+<div class="rent-grid">
+    <div class="all-rent">
+        <div class="card">
+            <div class="card-header">
+                <h3>Rent List</h3>
+                <div class="btn-list">
+                    <a href="#" class="modalbtn" (click)="openmodal()"><span class="text">Add New</span></a>
+                    <a href="#"><span class="text">See All</span></a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <table>
+                    <thead>
+                        <th>RentID</th>
+                        <th>LibrarianID</th>
+                        <th>ReaderID</th>
+                        <th>Rent Date</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of ListRent">
+                            <td>{{item.RentID}}</td>
+                            <td>{{item.LibrarianID}}</td>
+                            <td>{{item.ReaderID}}</td>
+                            <td>{{item.RentDate}}</td>
+                            <td>{{item.DueDate}}</td>
+                            <td *ngIf="currentDateTimeString <= item.DueDate">Pending</td>
+                            <td *ngIf="currentDateTimeString > item.DueDate">OverDue</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="loginmodal">
+    <div class="modal">
+      <div class="top-form">
+        <div class="close-modal" (click)="closemodal()">
+          &#10006;
+        </div>
+      </div>
+      <div class = "login-form">
+        <h2>Login With Email</h2>
+          <input class="form-control" type="number" placeholder="LibrarianID" [(ngModel)]="librarianID">
+          <input class="form-control" type="number" placeholder="ReaderID" [(ngModel)]="readerID">
+          <input class="form-control" type="date" placeholder="DueDate" [(ngModel)]="dueDate">
+          <button type = "button" class = "submit-btn" (click)="submitAdd()">Add</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="Pagination">
+    <ul>
+      <li (click)="prevpage()"><i class='bx bx-chevron-left icon' ></i></li>
+      <li *ngFor="let item of totalarr" class="Pag" id="Inactive"><span class="text" (click)="changepage(item)">{{item + 1}}</span></li>
+      <li (click)="nextpage()"><i class='bx bx-chevron-right icon'></i></li>
+    </ul>
+ </div>
