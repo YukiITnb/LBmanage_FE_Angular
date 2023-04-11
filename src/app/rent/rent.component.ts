@@ -25,18 +25,25 @@ export class RentComponent implements OnInit {
   constructor(private service:SharedService,private elementRef: ElementRef){}
 
   ngOnInit(): void {
-    this.LoadRent(0, 5)
+    this.LoadListRent()
     this.LoadTotalPage()
-    this.setCurPage()
     console.log(this.currentDateTimeString)
   }
 
+  
   LoadRent(i:any = null, j:any = null){
+    this.ListRent = this.Rent.slice(i, j)
+  }
+
+  LoadListRent(){
     this.service.loadRent().subscribe(data =>{
-      this.ListRent = null
-      this.ListRent = data.slice(i,j)
+      this.Rent = null
+      this.Rent = data
+      console.log(this.ListRent)
+      this.LoadRent(0, 5)
     })
   }
+  
 
   LoadTotalPage(){
     this.service.loadRent().subscribe(data =>{
@@ -46,16 +53,18 @@ export class RentComponent implements OnInit {
     })
   }
 
-  setCurPage(){
-    setTimeout(() => {
-      const pag = this.elementRef.nativeElement.querySelector('.Pag');
-      pag.setAttribute('id','Active')
-    }, 200);
+  changepage(item:any,event:MouseEvent){
+    this.curPage = item
+    this.change(event)
   }
 
-  changepage(item:any){
-    this.LoadRent(item * 5, item * 5 + 5)
-    this.curPage = item
+  change(event:MouseEvent){
+    this.LoadRent((this.curPage) * 5, (this.curPage) * 5 + 5)
+    const pag = this.elementRef.nativeElement.querySelector('.Active');
+    pag.classList.toggle("Active")
+    const target = event.target as HTMLElement;
+    const parent = target.closest('li');
+    parent!.classList.toggle("Active")
   }
 
   prevpage(){
@@ -63,17 +72,23 @@ export class RentComponent implements OnInit {
     else{
       this.LoadRent((this.curPage - 1) * 5, (this.curPage - 1) * 5 + 5)
       this.curPage = this.curPage - 1
+      const pag = this.elementRef.nativeElement.querySelector('.Active');
+      pag.classList.toggle("Active")
+      const prevpag = pag.previousElementSibling ;
+      prevpag.classList.toggle("Active")
     }
-      
   }
 
   nextpage(){
-    if(this.curPage > this.totalpage - 1) return
+    if(this.curPage >= this.totalpage - 1) return
     else{
       this.LoadRent((this.curPage + 1) * 5, (this.curPage + 1) * 5 + 5)
       this.curPage = this.curPage + 1
+      const pag = this.elementRef.nativeElement.querySelector('.Active');
+      pag.classList.toggle("Active")
+      const nextpag = pag.nextElementSibling;
+      nextpag.classList.toggle("Active")
     }
-      
   }
 
   openmodal(){
@@ -95,7 +110,6 @@ export class RentComponent implements OnInit {
     this.service.addRent(rent).subscribe(res =>{
       alert(res.toString())
     })
-    console.log(rent)
     this.closemodal()
     this.LoadRent(0, 5)
   }

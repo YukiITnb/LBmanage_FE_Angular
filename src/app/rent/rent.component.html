@@ -1,4 +1,5 @@
-<div class="rent-grid">
+<div class="displaybody">
+  <div class="rent-grid">
     <div class="all-rent">
         <div class="card">
             <div class="card-header">
@@ -26,8 +27,8 @@
                             <td>{{item.ReaderID}}</td>
                             <td>{{item.RentDate}}</td>
                             <td>{{item.DueDate}}</td>
-                            <td *ngIf="currentDateTimeString <= item.DueDate">Pending</td>
-                            <td *ngIf="currentDateTimeString > item.DueDate">OverDue</td>
+                            <td *ngIf="currentDateTimeString <= item.DueDate" [ngClass]="'Pending'">Pending</td>
+                            <td *ngIf="currentDateTimeString > item.DueDate" [ngClass]="'OverDue'">OverDue</td>
                         </tr>
                     </tbody>
                 </table>
@@ -56,7 +57,8 @@
   <div class="Pagination">
     <ul>
       <li (click)="prevpage()"><i class='bx bx-chevron-left icon' ></i></li>
-      <li *ngFor="let item of totalarr" class="Pag" id="Inactive"><span class="text" (click)="changepage(item)">{{item + 1}}</span></li>
+      <li *ngFor="let item of totalarr" class="Pag" [ngClass]="{'Active': item == 0}"><span class="text" (click)="changepage(item,$event)">{{item + 1}}</span></li>
       <li (click)="nextpage()"><i class='bx bx-chevron-right icon'></i></li>
     </ul>
  </div>
+</div>

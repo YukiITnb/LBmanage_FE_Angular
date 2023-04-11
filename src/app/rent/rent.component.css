@@ -62,6 +62,7 @@ table{
     border-spacing: 0;
     width: 100%;
     text-align: center;
+    height: 250px;
 }
 
 th {
@@ -75,6 +76,10 @@ th {
     border: 1px solid var(--primary-color);
     padding: 8px;
     color: var(--text-color);
+  }
+
+  td.OverDue{
+    color: red;
   }
   
   tr:hover {
@@ -184,6 +189,10 @@ th {
   color: var(--sidebar-color);
 }
 
-.Pagination li #Active{
+.Pagination li.Active{
   background-color: var(--primary-color);
+}
+
+.Pagination li.Active .text{
+  color: var(--sidebar-color);
 }
