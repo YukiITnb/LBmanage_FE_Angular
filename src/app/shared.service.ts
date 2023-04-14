@@ -18,4 +18,12 @@ export class SharedService {
   addRent(val:any){
     return this.http.post(this.APIUrl + 'Rent', val)
   }
+
+  loadBook():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl + 'Book')
+  }
+
+  addBook(val:any){
+    return this.http.post(this.APIUrl + 'Book', val)
+  }
 }

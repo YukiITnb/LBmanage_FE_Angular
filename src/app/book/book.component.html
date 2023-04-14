@@ -1,0 +1,69 @@
+<div class="displaybody">
+    <div class="rent-grid">
+      <div class="all-rent">
+          <div class="card">
+              <div class="card-header">
+                  <h3>Rent List</h3>
+                  <div class="btn-list">
+                    <div class="modalbtn" (click)="openmodal()">
+                      <span class="text">Add New</span>
+                    </div>  
+                    
+                    <div class="modalbtn">
+                      <span class="text">See All</span>
+                    </div>
+                  </div>
+              </div>
+  
+              <div class="card-body">
+                  <table>
+                      <thead>
+                          <th>BookID</th>
+                          <th>BookTitle</th>
+                          <th>AuthorID</th>
+                          <th>Publisher</th>
+                          <th>PublicationDate</th>
+                          <th>Quantity</th>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of ListBook">
+                              <td>{{item.BookID}}</td>
+                              <td>{{item.BookTitle}}</td>
+                              <td>{{item.AuthorID}}</td>
+                              <td>{{item.Publisher}}</td>
+                              <td>{{item.PublicationDate}}</td>
+                              <td>{{item.Quantity}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="loginmodal">
+      <div class="modal">
+        <div class="top-form">
+          <div class="close-modal" (click)="closemodal()">
+            &#10006;
+          </div>
+        </div>
+        <div class = "login-form">
+          <h2>Add a new rent</h2>
+            <input class="form-control" type="text" placeholder="BookTitle" [(ngModel)]="BookTitle">
+            <input class="form-control" type="number" placeholder="AuthorID" [(ngModel)]="AuthorID">
+            <input class="form-control" type="text" placeholder="Publisher" [(ngModel)]="Publisher">
+            <input class="form-control" type="number" placeholder="Quantity" [(ngModel)]="Quantity">
+            <button type = "button" class = "submit-btn" (click)="submitAdd()">Add</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="Pagination">
+      <ul>
+        <li (click)="prevpage()"><i class='bx bx-chevron-left icon' ></i></li>
+        <li *ngFor="let item of totalarr" class="Pag" [ngClass]="{'Active': item == 0}"><span class="text" (click)="changepage(item,$event)">{{item + 1}}</span></li>
+        <li (click)="nextpage()"><i class='bx bx-chevron-right icon'></i></li>
+      </ul>
+   </div>
+  </div>

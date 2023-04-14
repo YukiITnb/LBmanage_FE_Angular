@@ -31,7 +31,7 @@
     margin-left: 15px;
 }
 
-.card-header a{
+.card-header .modalbtn{
     width: 90px;
     display: flex;
     align-items: center;
@@ -49,11 +49,11 @@
     color: var(--text-color);
 }
 
-.card-header a:hover{
+.card-header .modalbtn:hover{
     background: var(--primary-color);
 }
 
-.card-header a:hover .text{
+.card-header .modalbtn:hover .text{
     color: var(--sidebar-color);
 }
 
