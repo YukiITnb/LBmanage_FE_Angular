@@ -14,28 +14,27 @@ export class AppComponent {
   constructor(@Inject(DOCUMENT) private document: Document, private auth: AuthService) {}
 
   ngOnInit(): void {
-    
-    if(this.Logged()){
-      const body = this.document.querySelector("body")
-      const sidebar = this.document.querySelector(".sidebar")
-      const toggle = this.document.querySelector(".toggle")
-      const searchBtn = this.document.querySelector(".item-search")
-      const modeSwitch = this.document.querySelector(".toggle-switch")
-      const modeText = this.document.querySelector(".mode-text")
 
-      toggle!.addEventListener('click', (event:Event) =>{
-        sidebar!.classList.toggle("close")
-      })
+  }
 
-      modeSwitch?.addEventListener('click', (event:Event) =>{
-        body!.classList.toggle("dark")
+  closeSidebar(){
+    const sidebar = this.document.querySelector(".sidebar")
+    sidebar!.classList.toggle("close")
+  }
 
-        if(body!.classList.contains("dark")){
-          modeText!.innerHTML = 'Light Mode'
-        }else{
-          modeText!.innerHTML = 'Dark Mode'
-        }
-      });
+  DarkMode(){
+    const body = this.document.querySelector("body")
+    const modeText = this.document.querySelector(".mode-text")
+    body!.classList.toggle("dark")
+
+    if(body!.classList.contains("dark")){
+      modeText!.innerHTML = 'Light Mode'
+      const sun = this.document.querySelector(".sun") as HTMLElement
+      sun.style.opacity = '1'
+    }else{
+      modeText!.innerHTML = 'Dark Mode'
+      const sun = this.document.querySelector(".sun") as HTMLElement
+      sun.style.opacity = '0'
     }
   }
 

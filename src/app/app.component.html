@@ -15,7 +15,7 @@
         </div>
         
       </div>
-      <i class='bx bx-chevron-right toggle'></i>
+      <i class='bx bx-chevron-right toggle' (click)="closeSidebar()"></i>
   
     </header>
     <div class="menu-bar">
@@ -72,7 +72,7 @@
             <i class='bx bx-sun icon sun'></i>
           </div>
           <span class="text mode-text">Dark Mode</span>
-          <div class="toggle-switch">
+          <div class="toggle-switch" (click)="DarkMode()">
             <span class="switch"></span>
           </div>
         </li>
