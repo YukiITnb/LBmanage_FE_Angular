@@ -9,11 +9,15 @@ import { SharedService } from './shared.service';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RentComponent } from './rent/rent.component';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './auth.service';
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
-    RentComponent
+    RentComponent,
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,9 @@ import { RentComponent } from './rent/rent.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

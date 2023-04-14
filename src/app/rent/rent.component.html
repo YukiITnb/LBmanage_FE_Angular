@@ -27,7 +27,7 @@
                             <td>{{item.ReaderID}}</td>
                             <td>{{item.RentDate}}</td>
                             <td>{{item.DueDate}}</td>
-                            <td *ngIf="currentDateTimeString <= item.DueDate" [ngClass]="'Pending'">Pending</td>
+                            <td *ngIf="currentDateTimeString <= item.DueDate" [ngClass]="'Pending'">UnDue</td>
                             <td *ngIf="currentDateTimeString > item.DueDate" [ngClass]="'OverDue'">OverDue</td>
                         </tr>
                     </tbody>
@@ -45,7 +45,7 @@
         </div>
       </div>
       <div class = "login-form">
-        <h2>Login With Email</h2>
+        <h2>Add a new rent</h2>
           <input class="form-control" type="number" placeholder="LibrarianID" [(ngModel)]="librarianID">
           <input class="form-control" type="number" placeholder="ReaderID" [(ngModel)]="readerID">
           <input class="form-control" type="date" placeholder="DueDate" [(ngModel)]="dueDate">

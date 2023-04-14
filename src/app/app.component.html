@@ -1,129 +1,135 @@
 <!DOCTYPE html>
-<nav class="sidebar">
-  <header>
-    <div class="image-text">
-      <!-- <span class="image">
-        <img src="assets/logo.png" alt="logo">
-      </span> -->
+<app-login *ngIf="Logged() == false"></app-login>
 
-      <div class="text header-text">
-        <span class="name">LBManage</span>
-        <span class="dev coder">Yuki</span>
-      </div>
-      
-    </div>
-    <i class='bx bx-chevron-right toggle'></i>
-
-  </header>
-  <div class="menu-bar">
-    <div class="menu">
-      <ul class="menu-items">
-
-        <li class="item-search">
-          <i class='bx bx-search-alt icon' ></i>
-          <input type="search" placeholder="Search...">
-        </li>
-
-        <li class="item-home">
-          <a href="#">
-            <i class='bx bx-home icon' ></i>
-            <span class="text item-text">Dash Board</span>
-          </a>
-        </li>
-
-        <li class="item-home">
-          <a href="#" routerLink="book">
-            <i class='bx bx-book icon' ></i>
-            <span class="text item-text">Book List</span>
-          </a>
-        </li>
-
-        <li class="item-home">
-          <a href="#">
-            <i class='bx bxs-user-account icon' ></i>
-            <span class="text item-text">Reader List</span>
-          </a>
-        </li>
-
-        <li class="item-home">
-          <a href="#">
-            <i class='bx bx-home icon' ></i>
-            <span class="text item-text">Dash Board</span>
-          </a>
-        </li>
-
-      </ul>
-    </div>
-    <div class="bottom-content">
-
-      <li class="">
-        <a href="#">
-          <i class='bx bx-log-out icon'></i>
-          <span class="text item-text">Logout</span>
-        </a>
-      </li>
-
-      <li class="mode">
-        <div class="moon-sun">
-          <i class='bx bx-moon icon moon'></i>
-          <i class='bx bx-sun icon sun'></i>
+<div *ngIf="Logged()">
+  <nav class="sidebar">
+    <header>
+      <div class="image-text">
+        <!-- <span class="image">
+          <img src="assets/logo.png" alt="logo">
+        </span> -->
+  
+        <div class="text header-text">
+          <span class="name">LBManage</span>
+          <span class="dev coder">Yuki</span>
         </div>
-        <span class="text mode-text">Dark Mode</span>
-        <div class="toggle-switch">
-          <span class="switch"></span>
+        
+      </div>
+      <i class='bx bx-chevron-right toggle'></i>
+  
+    </header>
+    <div class="menu-bar">
+      <div class="menu">
+        <ul class="menu-items">
+  
+          <li class="item-search">
+            <i class='bx bx-search-alt icon' ></i>
+            <input type="search" placeholder="Search...">
+          </li>
+  
+          <li class="item-home">
+            <a href="#">
+              <i class='bx bx-home icon' ></i>
+              <span class="text item-text">Dash Board</span>
+            </a>
+          </li>
+  
+          <li class="item-home">
+            <a href="#" routerLink="book">
+              <i class='bx bx-book icon' ></i>
+              <span class="text item-text">Book List</span>
+            </a>
+          </li>
+  
+          <li class="item-home">
+            <a href="#">
+              <i class='bx bxs-user-account icon' ></i>
+              <span class="text item-text">Reader List</span>
+            </a>
+          </li>
+  
+          <li class="item-home">
+            <a href="#">
+              <i class='bx bx-home icon' ></i>
+              <span class="text item-text">Dash Board</span>
+            </a>
+          </li>
+  
+        </ul>
+      </div>
+      <div class="bottom-content">
+  
+        <li class="" (click)="Logout()">
+          <a href="#">
+            <i class='bx bx-log-out icon'></i>
+            <span class="text item-text">Logout</span>
+          </a>
+        </li>
+  
+        <li class="mode">
+          <div class="moon-sun">
+            <i class='bx bx-moon icon moon'></i>
+            <i class='bx bx-sun icon sun'></i>
+          </div>
+          <span class="text mode-text">Dark Mode</span>
+          <div class="toggle-switch">
+            <span class="switch"></span>
+          </div>
+        </li>
+  
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <div class="cards">
+  
+      <div class="card-single">
+        <div>
+          <h1>20</h1>
+          <span>Readers</span>
         </div>
-      </li>
-
+        <div>
+          <i class='bx bx-book-reader icon'></i>
+        </div>
+      </div>
+  
+      <div class="card-single">
+        <div>
+          <h1>100</h1>
+          <span>Books</span>
+        </div>
+        <div>
+          <i class='bx bx-book-content icon'></i>
+        </div>
+      </div>
+  
+      <div class="card-single">
+        <div>
+          <h1>30</h1>
+          <span>Rent Oders</span>
+        </div>
+        <div>
+          <i class='bx bx-cart icon'></i>
+        </div>
+      </div>
+  
+      <div class="card-single">
+        <div>
+          <h1>50k</h1>
+          <span>Income</span>
+        </div>
+        <div>
+          <i class='bx bx-money-withdraw icon'></i>
+        </div>
+      </div>
+  
     </div>
+  
+    <router-outlet></router-outlet>
+  
   </div>
-</nav>
-
-<div class="container">
-  <div class="cards">
-
-    <div class="card-single">
-      <div>
-        <h1>20</h1>
-        <span>Readers</span>
-      </div>
-      <div>
-        <i class='bx bx-book-reader icon'></i>
-      </div>
-    </div>
-
-    <div class="card-single">
-      <div>
-        <h1>100</h1>
-        <span>Books</span>
-      </div>
-      <div>
-        <i class='bx bx-book-content icon'></i>
-      </div>
-    </div>
-
-    <div class="card-single">
-      <div>
-        <h1>30</h1>
-        <span>Rent Oders</span>
-      </div>
-      <div>
-        <i class='bx bx-cart icon'></i>
-      </div>
-    </div>
-
-    <div class="card-single">
-      <div>
-        <h1>50k</h1>
-        <span>Income</span>
-      </div>
-      <div>
-        <i class='bx bx-money-withdraw icon'></i>
-      </div>
-    </div>
-
-  </div>
-
-  <router-outlet></router-outlet>
-
 </div>
+
+
 
