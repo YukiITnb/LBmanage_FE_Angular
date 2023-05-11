@@ -20,6 +20,7 @@ export class BookComponent implements OnInit{
   primaryColor = '#695CFE'
   curPage:any = 0
 
+  selectedValue:any
 
   constructor(private service:SharedService,private elementRef: ElementRef){}
 
@@ -112,4 +113,57 @@ export class BookComponent implements OnInit{
     this.closemodal()
     this.LoadRent(0, 5)
   }
+
+  onInputChange(event: any) {
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    let Rent_change : any = []
+    if(inputValue == 'In alphabetical order'){
+      Rent_change = this.Rent
+      Rent_change.sort((Ra:any,Rb:any) =>{
+        const booka = Ra.BookTitle.toLowerCase()
+        const bookb = Rb.BookTitle.toLowerCase()
+        if (booka < bookb) {
+          return -1;
+        }
+        if (booka > bookb) {
+          return 1;
+        }
+        return 0;
+      })
+      this.ListBook = Rent_change.slice(0, 5)
+    }
+    else if(inputValue == 'In reverse alphabetical order'){
+      Rent_change = this.Rent
+      Rent_change.sort((Ra:any,Rb:any) =>{
+        const booka = Ra.BookTitle.toLowerCase()
+        const bookb = Rb.BookTitle.toLowerCase()
+        if (booka < bookb) {
+          return 1;
+        }
+        if (booka > bookb) {
+          return -1;
+        }
+        return 0;
+      })
+      this.ListBook = Rent_change.slice(0, 5)
+    }
+    else if(inputValue == 'Back'){
+      Rent_change = this.Rent
+      this.ListBook = Rent_change.slice(0, 5)
+    }
+    else{
+      for(let i = 0; i < this.Rent.length; i++){
+        if(this.Rent[i].BookTitle.toLowerCase().includes(inputValue.toLowerCase())){
+          Rent_change.push(this.Rent[i])
+        }
+      }
+      console.log(Rent_change)
+      this.ListBook = Rent_change.slice(0, 5)
+      this.totalpage = Math.ceil(Rent_change.length / 5)
+      this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+    }
+    
+  }
+  
 }

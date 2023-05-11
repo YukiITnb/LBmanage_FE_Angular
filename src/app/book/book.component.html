@@ -18,12 +18,58 @@
               <div class="card-body">
                   <table>
                       <thead>
+                        <tr>
                           <th>BookID</th>
                           <th>BookTitle</th>
                           <th>AuthorID</th>
                           <th>Publisher</th>
                           <th>PublicationDate</th>
                           <th>Quantity</th>
+                        </tr>
+                        <tr>
+                          <th><input type="text" id="book-id-input" list="book-id-list">
+                            <datalist id="book-id-list">
+                              <option value="John1">
+                              <option value="Mary">
+                              <option value="Peter">
+                            </datalist>
+                          </th>
+                          <th><input type="text" class="btitle-input" id="btitle-input" list="btitle-list" placeholder="Search BookTitle" (input)="onInputChange($event)">
+                            <datalist id="btitle-list">
+                              <option value="Back">
+                              <option value="In alphabetical order">
+                              <option value="In reverse alphabetical order">
+                            </datalist>                            
+                          </th>
+                          <th><input type="text" id="author-id-input" list="author-id-list">
+                            <datalist id="author-id-list">
+                              <option value="John1">
+                              <option value="Mary">
+                              <option value="Peter">
+                            </datalist>
+                          </th>
+                          <th><input type="text" id="pser-input" list="pser-list">
+                            <datalist id="pser-list">
+                              <option value="John1">
+                              <option value="Mary">
+                              <option value="Peter">
+                            </datalist>
+                          </th>
+                          <th><input type="text" id="pdate-input" list="pdate-list">
+                            <datalist id="pdate-list">
+                              <option value="John1">
+                              <option value="Mary">
+                              <option value="Peter">
+                            </datalist>
+                          </th>
+                          <th><input type="text" id="quantity-input" list="quantity-list">
+                            <datalist id="quantity-list">
+                              <option value="John1">
+                              <option value="Mary">
+                              <option value="Peter">
+                            </datalist>
+                          </th>
+                        </tr>
                       </thead>
                       <tbody>
                           <tr *ngFor="let item of ListBook">
