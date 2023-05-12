@@ -27,11 +27,11 @@
                           <th>Quantity</th>
                         </tr>
                         <tr>
-                          <th><input type="text" id="book-id-input" list="book-id-list">
-                            <datalist id="book-id-list">
-                              <option value="John1">
-                              <option value="Mary">
-                              <option value="Peter">
+                          <th><input type="text" id="bid-input" list="bid-list" placeholder="Search by ID" (input)="onInputChangebid($event)">
+                            <datalist id="bid-list">
+                              <option value="Back">
+                              <option value="1 to n">
+                              <option value="n to 1">
                             </datalist>
                           </th>
                           <th><input type="text" class="btitle-input" id="btitle-input" list="btitle-list" placeholder="Search BookTitle" (input)="onInputChange($event)">

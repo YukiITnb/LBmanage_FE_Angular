@@ -71,6 +71,10 @@ th {
     font-size: 1.2em;
     padding: 5px;
   }
+
+  th #btitle-list option[value="Back"] {
+    display: block;
+  }
   
   td {
     border: 1px solid var(--primary-color);
@@ -196,3 +200,4 @@ th {
 .Pagination li.Active .text{
   color: var(--sidebar-color);
 }
+
