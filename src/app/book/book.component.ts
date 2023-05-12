@@ -166,7 +166,7 @@ export class BookComponent implements OnInit{
     }
   }
 
-  onInputChange(event: any) {
+  onInputChangebtl(event: any) {
     const inputValue = event.target.value;
     console.log(inputValue);
     let Rent_change : any = []
@@ -208,7 +208,7 @@ export class BookComponent implements OnInit{
         break
       default:
         for(let i = 0; i < this.Rent.length; i++){
-          if(this.Rent[i].BookID == inputValue){
+          if(this.Rent[i].BookTitle.toLowerCase().includes(inputValue.toLowerCase())){
             Rent_change.push(this.Rent[i])
           }
         }
@@ -219,6 +219,183 @@ export class BookComponent implements OnInit{
         break
     }
     
+  }
+
+  onInputChangeaid(event : any){
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    let Rent_change : any = []
+    switch(inputValue){
+      case '1 to n':
+        Rent_change = this.Rent
+        Rent_change.sort((Ra:any,Rb:any) =>{
+          const booka = Ra.AuthorID
+          const bookb = Rb.AuthorID
+          if (booka < bookb) {
+            return -1;
+          }
+          if (booka > bookb) {
+            return 1;
+          }
+          return 0;
+        })
+        this.ListBook = Rent_change.slice(0, 5)
+        break
+      case 'n to 1':
+        Rent_change = this.Rent
+        Rent_change.sort((Ra:any,Rb:any) =>{
+          const booka = Ra.AuthorID
+          const bookb = Rb.AuthorID
+          if (booka < bookb) {
+            return 1;
+          }
+          if (booka > bookb) {
+            return -1;
+          }
+          return 0;
+        })
+        this.ListBook = Rent_change.slice(0, 5)
+        break
+      case '':
+        this.ListBook = this.Rent.slice(0, 5)
+        this.totalpage = Math.ceil(this.Rent.length / 5)
+        this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+        break
+      default:
+        for(let i = 0; i < this.Rent.length; i++){
+          if(this.Rent[i].AuthorID == inputValue){
+            Rent_change.push(this.Rent[i])
+          }
+        }
+        console.log(Rent_change)
+        this.ListBook = Rent_change.slice(0, 5)
+        this.totalpage = Math.ceil(Rent_change.length / 5)
+        this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+        break
+    }
+  }
+
+  onInputChangeps(event : any){
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    let Rent_change : any = []
+    switch(inputValue){
+      case 'In alphabetical order':
+        Rent_change = this.Rent
+        Rent_change.sort((Ra:any,Rb:any) =>{
+          const booka = Ra.Publisher.toLowerCase()
+          const bookb = Rb.Publisher.toLowerCase()
+          if (booka < bookb) {
+            return -1;
+          }
+          if (booka > bookb) {
+            return 1;
+          }
+          return 0;
+        })
+        this.ListBook = Rent_change.slice(0, 5)
+        break
+      case 'In reverse alphabetical order':
+        Rent_change = this.Rent
+        Rent_change.sort((Ra:any,Rb:any) =>{
+          const booka = Ra.Publisher.toLowerCase()
+          const bookb = Rb.Publisher.toLowerCase()
+          if (booka < bookb) {
+            return 1;
+          }
+          if (booka > bookb) {
+            return -1;
+          }
+          return 0;
+        })
+        this.ListBook = Rent_change.slice(0, 5)
+        break
+      case '':
+        this.ListBook = this.Rent.slice(0, 5)
+        this.totalpage = Math.ceil(this.Rent.length / 5)
+        this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+        break
+      default:
+        for(let i = 0; i < this.Rent.length; i++){
+          if(this.Rent[i].Publisher.toLowerCase().includes(inputValue.toLowerCase())){
+            Rent_change.push(this.Rent[i])
+          }
+        }
+        console.log(Rent_change)
+        this.ListBook = Rent_change.slice(0, 5)
+        this.totalpage = Math.ceil(Rent_change.length / 5)
+        this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+        break
+    }
+  }
+
+  onInputChangepdate(event : any){
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    let Rent_change : any = []
+    for(let i = 0; i < this.Rent.length; i++){
+      if(this.Rent[i].PublicationDate.split('T')[0] == inputValue){
+        Rent_change.push(this.Rent[i])
+      }
+    }
+    console.log(Rent_change)
+    this.ListBook = Rent_change.slice(0, 5)
+    this.totalpage = Math.ceil(Rent_change.length / 5)
+    this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+  }
+
+  onInputChangeqt(event : any){
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    let Rent_change : any = []
+    switch(inputValue){
+      case '1 to n':
+        Rent_change = this.Rent
+        Rent_change.sort((Ra:any,Rb:any) =>{
+          const booka = Ra.Quantity
+          const bookb = Rb.Quantity
+          if (booka < bookb) {
+            return -1;
+          }
+          if (booka > bookb) {
+            return 1;
+          }
+          return 0;
+        })
+        this.ListBook = Rent_change.slice(0, 5)
+        break
+      case 'n to 1':
+        Rent_change = this.Rent
+        Rent_change.sort((Ra:any,Rb:any) =>{
+          const booka = Ra.Quantity
+          const bookb = Rb.Quantity
+          if (booka < bookb) {
+            return 1;
+          }
+          if (booka > bookb) {
+            return -1;
+          }
+          return 0;
+        })
+        this.ListBook = Rent_change.slice(0, 5)
+        break
+      case '':
+        this.ListBook = this.Rent.slice(0, 5)
+        this.totalpage = Math.ceil(this.Rent.length / 5)
+        this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+        break
+      default:
+        for(let i = 0; i < this.Rent.length; i++){
+          if(this.Rent[i].Quantity == inputValue){
+            Rent_change.push(this.Rent[i])
+          }
+        }
+        console.log(Rent_change)
+        this.ListBook = Rent_change.slice(0, 5)
+        this.totalpage = Math.ceil(Rent_change.length / 5)
+        this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+        break
+    }
   }
   
 }

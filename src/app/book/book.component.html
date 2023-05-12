@@ -34,39 +34,34 @@
                               <option value="n to 1">
                             </datalist>
                           </th>
-                          <th><input type="text" class="btitle-input" id="btitle-input" list="btitle-list" placeholder="Search BookTitle" (input)="onInputChange($event)">
+                          <th><input type="text" id="btitle-input" list="btitle-list" placeholder="Search BookTitle" (input)="onInputChangebtl($event)">
                             <datalist id="btitle-list">
                               <option value="Back">
                               <option value="In alphabetical order">
                               <option value="In reverse alphabetical order">
                             </datalist>                            
                           </th>
-                          <th><input type="text" id="author-id-input" list="author-id-list">
-                            <datalist id="author-id-list">
-                              <option value="John1">
-                              <option value="Mary">
-                              <option value="Peter">
+                          <th><input type="text" id="auid-input" list="auid-list" placeholder="Search by AuthorID" (input)="onInputChangeaid($event)">
+                            <datalist id="auid-list">
+                              <option value="Back">
+                              <option value="1 to n">
+                              <option value="n to 1">
                             </datalist>
                           </th>
-                          <th><input type="text" id="pser-input" list="pser-list">
+                          <th><input type="text" id="pser-input" list="pser-list" placeholder="Search Publisher" (input)="onInputChangeps($event)">
                             <datalist id="pser-list">
-                              <option value="John1">
-                              <option value="Mary">
-                              <option value="Peter">
+                              <option value="Back">
+                              <option value="In alphabetical order">
+                              <option value="In reverse alphabetical order">
                             </datalist>
                           </th>
-                          <th><input type="text" id="pdate-input" list="pdate-list">
-                            <datalist id="pdate-list">
-                              <option value="John1">
-                              <option value="Mary">
-                              <option value="Peter">
-                            </datalist>
+                          <th><input type="date" id="pdate-input" placeholder="Search PublicationDate" (input)="onInputChangepdate($event)">
                           </th>
-                          <th><input type="text" id="quantity-input" list="quantity-list">
+                          <th><input type="text" id="quantity-input" list="quantity-list" placeholder="Search Quantity" (input)="onInputChangeqt($event)">
                             <datalist id="quantity-list">
-                              <option value="John1">
-                              <option value="Mary">
-                              <option value="Peter">
+                              <option value="Back">
+                              <option value="1 to n">
+                              <option value="n to 1">
                             </datalist>
                           </th>
                         </tr>
