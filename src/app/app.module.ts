@@ -11,12 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RentComponent } from './rent/rent.component';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
+import { ReaderComponent } from './reader/reader.component';
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     RentComponent,
     LoginComponent,
+    ReaderComponent,
 
   ],
   imports: [

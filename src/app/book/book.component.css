@@ -72,6 +72,16 @@ th {
     padding: 5px;
   }
 
+  th input{
+    border-radius: 5px;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    padding: 2px 0px 2px 0px;
+  }
+
   th #btitle-list option[value="Back"] {
     display: block;
   }
