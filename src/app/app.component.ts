@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from './auth.service';
+import { SharedService } from './shared.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +11,33 @@ import { AuthService } from './auth.service';
 export class AppComponent {
   title = 'LBManageFE';
   login:boolean = false
+  Readers: any = 0
+  Books: any = 0
+  Rents: any = 0
 
-  constructor(@Inject(DOCUMENT) private document: Document, private auth: AuthService) {}
+  Load(){
+    this.service.loadReader().subscribe(data =>{
+      data.forEach((r:any) =>{
+        this.Readers++
+      })
+    })
+    this.service.loadBook().subscribe(data =>{
+      data.forEach((r:any) =>{
+        this.Books++
+      })
+    })
+    this.service.loadRent().subscribe(data =>{
+      data.forEach((r:any) =>{
+        this.Rents++
+      })
+    })
+  }
+
+
+  constructor(@Inject(DOCUMENT) private document: Document, private auth: AuthService,private service:SharedService) {}
 
   ngOnInit(): void {
-
+    this.Load()
   }
 
   closeSidebar(){
