@@ -35,5 +35,8 @@ export class SharedService {
     return this.http.post(this.APIUrl + 'Reader', val)
   }
 
+  loadAuthorName(authorId : any){
+    return this.http.get<any>(this.APIUrl + 'Author/' + authorId)
+  }
 
 }

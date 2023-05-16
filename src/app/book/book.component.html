@@ -41,11 +41,11 @@
                               <option value="In reverse alphabetical order">
                             </datalist>                            
                           </th>
-                          <th><input type="text" id="auid-input" list="auid-list" placeholder="Search by AuthorID" (input)="onInputChangeaid($event)">
+                          <th><input type="text" id="auid-input" list="auid-list" placeholder="Search by AuthorName" (input)="onInputChangeaid($event)">
                             <datalist id="auid-list">
                               <option value="Back">
-                              <option value="1 to n">
-                              <option value="n to 1">
+                                <option value="In alphabetical order">
+                                <option value="In reverse alphabetical order">
                             </datalist>
                           </th>
                           <th><input type="text" id="pser-input" list="pser-list" placeholder="Search Publisher" (input)="onInputChangeps($event)">
@@ -70,7 +70,7 @@
                           <tr *ngFor="let item of ListBook">
                               <td>{{item.BookID}}</td>
                               <td>{{item.BookTitle}}</td>
-                              <td>{{item.AuthorID}}</td>
+                              <td>{{item.AuthorName}}</td>
                               <td>{{item.Publisher}}</td>
                               <td>{{item.PublicationDate}}</td>
                               <td>{{item.Quantity}}</td>

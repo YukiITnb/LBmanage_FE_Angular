@@ -39,6 +39,12 @@ export class BookComponent implements OnInit{
       this.Book = null
       this.Book = data
       console.log(this.ListBook)
+      this.Book.forEach((b:any) => {
+        this.service.loadAuthorName(b.AuthorID).subscribe(data =>{
+          b.AuthorName = data[0].AuthorName
+          // console.log(data[0].AuthorName)
+        })
+      });
       this.LoadBook(0, 5)
     })
   }
@@ -226,11 +232,11 @@ export class BookComponent implements OnInit{
     console.log(inputValue);
     let Book_change : any = []
     switch(inputValue){
-      case '1 to n':
+      case 'In alphabetical order':
         Book_change = this.Book
         Book_change.sort((Ra:any,Rb:any) =>{
-          const booka = Ra.AuthorID
-          const bookb = Rb.AuthorID
+          const booka = Ra.AuthorName.toLowerCase()
+          const bookb = Rb.AuthorName.toLowerCase()
           if (booka < bookb) {
             return -1;
           }
@@ -241,11 +247,11 @@ export class BookComponent implements OnInit{
         })
         this.ListBook = Book_change.slice(0, 5)
         break
-      case 'n to 1':
+      case 'In reverse alphabetical order':
         Book_change = this.Book
         Book_change.sort((Ra:any,Rb:any) =>{
-          const booka = Ra.AuthorID
-          const bookb = Rb.AuthorID
+          const booka = Ra.AuthorName.toLowerCase()
+          const bookb = Rb.AuthorName.toLowerCase()
           if (booka < bookb) {
             return 1;
           }
@@ -263,7 +269,7 @@ export class BookComponent implements OnInit{
         break
       default:
         for(let i = 0; i < this.Book.length; i++){
-          if(this.Book[i].AuthorID == inputValue){
+          if(this.Book[i].AuthorName.toLowerCase().includes(inputValue.toLowerCase())){
             Book_change.push(this.Book[i])
           }
         }
