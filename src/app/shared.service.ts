@@ -26,4 +26,14 @@ export class SharedService {
   addBook(val:any){
     return this.http.post(this.APIUrl + 'Book', val)
   }
+
+  loadReader(){
+    return this.http.get<any>(this.APIUrl + 'Reader')
+  }
+
+  addReader(val:any){
+    return this.http.post(this.APIUrl + 'Reader', val)
+  }
+
+
 }

@@ -1,1 +1,96 @@
-<p>reader works!</p>
+<div class="displaybody">
+    <div class="rent-grid">
+      <div class="all-rent">
+          <div class="card">
+              <div class="card-header">
+                  <h3>Rent List</h3>
+                  <div class="btn-list">
+                    <div class="modalbtn" (click)="openmodal()">
+                      <span class="text">Add New</span>
+                    </div>  
+                    
+                    <div class="modalbtn">
+                      <span class="text">See All</span>
+                    </div>
+                  </div>
+              </div>
+  
+              <div class="card-body">
+                  <table>
+                      <thead>
+                        <tr>
+                          <th>ReaderID</th>
+                          <th>ReaderName</th>
+                          <th>ReaderEmail</th>
+                          <th>ReaderPhone</th>
+                        </tr>
+                        <tr>
+                          <th><input type="text" id="rid-input" list="rid-list" placeholder="Search by ID" (input)="onInputChangerid($event)">
+                            <datalist id="rid-list">
+                              <option value="Back">
+                              <option value="1 to n">
+                              <option value="n to 1">
+                            </datalist>
+                          </th>
+                          <th><input type="text" id="rname-input" list="rname-list" placeholder="Search Name" (input)="onInputChangern($event)">
+                            <datalist id="rname-list">
+                              <option value="Back">
+                              <option value="In alphabetical order">
+                              <option value="In reverse alphabetical order">
+                            </datalist>                            
+                          </th>
+                          <th><input type="text" id="re-input" list="re-list" placeholder="Search by ReaderEmail" (input)="onInputChangere($event)">
+                            <datalist id="re-list">
+                              <option value="Back">
+                              <option value="1 to n">
+                              <option value="n to 1">
+                            </datalist>
+                          </th>
+                          <th><input type="text" id="rp-input" list="rp-list" placeholder="Search Phone" (input)="onInputChangerp($event)">
+                            <datalist id="rp-list">
+                              <option value="Back">
+                              <option value="In alphabetical order">
+                              <option value="In reverse alphabetical order">
+                            </datalist>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let item of ListReader">
+                              <td>{{item.ReaderID}}</td>
+                              <td>{{item.ReaderName}}</td>
+                              <td>{{item.ReaderEmail}}</td>
+                              <td>{{item.ReaderPhone}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div class="loginmodal">
+      <div class="modal">
+        <div class="top-form">
+          <div class="close-modal" (click)="closemodal()">
+            &#10006;
+          </div>
+        </div>
+        <div class = "login-form">
+          <h2>Add a new rent</h2>
+            <input class="form-control" type="text" placeholder="ReaderName" [(ngModel)]="ReaderName">
+            <input class="form-control" type="text" placeholder="ReaderEmail" [(ngModel)]="ReaderEmail">
+            <input class="form-control" type="number" placeholder="ReaderPhone" [(ngModel)]="ReaderPhone">
+            <button type = "button" class = "submit-btn" (click)="submitAdd()">Add</button>
+        </div>
+      </div>
+    </div>
+  
+    <div class="Pagination">
+      <ul>
+        <li (click)="prevpage()"><i class='bx bx-chevron-left icon' ></i></li>
+        <li *ngFor="let item of totalarr" class="Pag" [ngClass]="{'Active': item == 0}"><span class="text" (click)="changepage(item,$event)">{{item + 1}}</span></li>
+        <li (click)="nextpage()"><i class='bx bx-chevron-right icon'></i></li>
+      </ul>
+   </div>
+  </div>

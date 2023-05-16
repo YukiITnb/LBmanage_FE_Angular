@@ -1,0 +1,213 @@
+
+.rent-grid{
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.card{
+    background: var(--sidebar-color);
+    border-radius: 12px;
+}
+
+.card-header, .card-body{
+    padding: 10px;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header .btn-list{
+    display: flex;
+    align-items: center;
+}
+
+.card-header h3{
+    color: var(--text-color);
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.card-header .modalbtn{
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 6px;
+    transition: var(--tran-04);
+    padding: 10px 10px;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.card-header .text{
+    color: var(--text-color);
+}
+
+.card-header .modalbtn:hover{
+    background: var(--primary-color);
+}
+
+.card-header .modalbtn:hover .text{
+    color: var(--sidebar-color);
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    text-align: center;
+    height: 250px;
+}
+
+th {
+    background-color: var(--sidebar-color);
+    color: var(--text-color);
+    font-size: 1.2em;
+    padding: 5px;
+  }
+
+  th input{
+    border-radius: 5px;
+    width: 100%;
+    border: 2px solid var(--primary-color);
+    text-align: center;
+    background: var(--sidebar-color);
+    color: var(--text-color);
+    padding: 2px 0px 2px 0px;
+  }
+
+  th #btitle-list option[value="Back"] {
+    display: block;
+  }
+  
+  td {
+    border: 1px solid var(--primary-color);
+    padding: 8px;
+    color: var(--text-color);
+  }
+
+  td.OverDue{
+    color: red;
+  }
+  
+  tr:hover {
+    background-color: var(--body-color);
+  }
+
+  /* ============Modal========= */
+
+  .loginmodal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 100;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal{
+    background-color: var(--body-color);
+    padding: 10px 0 20px 0;
+    border-radius: 10px;
+    width: 450px;
+    text-align: center;
+  }
+  
+  .top-form{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .top-form .close-modal{
+    cursor: pointer;
+    padding: 0 20px;
+    font-size: 20px;
+  }
+  
+  .login-form h2{
+    letter-spacing: 2px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: var(--text-color);
+  }
+  
+  .login-form input{
+    width: 75%;
+    margin-bottom: 20px;
+    padding: 12px 12px;
+    box-sizing: border-box;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    background: var(--sidebar-color);
+  }
+  
+  .login-form button{
+    padding: 12px 0px;
+    width: 75%;
+    background-color: #5dca88;
+    border: 0;
+    border-radius: 3px;
+    color: white;
+    margin: 10px auto;
+    cursor: pointer;
+  }
+
+  /* Pagination */
+.Pagination{
+  justify-content: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.Pagination ul{
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.Pagination li{
+  background-color: var(--sidebar-color);
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 0 5px;
+  cursor: pointer;
+  line-height: 35px;
+  transition: var(--tran-04);
+}
+
+.Pagination li:hover{
+  background-color: var(--primary-color);
+}
+
+.Pagination li:hover .text,
+.Pagination li:hover .icon{
+  color: var(--sidebar-color);
+}
+
+.Pagination li.Active{
+  background-color: var(--primary-color);
+}
+
+.Pagination li.Active .text{
+  color: var(--sidebar-color);
+}
+
