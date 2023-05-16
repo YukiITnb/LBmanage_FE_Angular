@@ -283,12 +283,27 @@ export class RentComponent implements OnInit {
     
   }
 
-  onInputChangepdate(event : any){
+  onInputChangeprdate(event : any){
     const inputValue = event.target.value;
     console.log(inputValue);
     let Rent_change : any = []
     for(let i = 0; i < this.Rent.length; i++){
-      if(this.Rent[i].PublicationDate.split('T')[0] == inputValue){
+      if(this.Rent[i].RentDate.split('T')[0] == inputValue){
+        Rent_change.push(this.Rent[i])
+      }
+    }
+    console.log(Rent_change)
+    this.ListRent = Rent_change.slice(0, 5)
+    this.totalpage = Math.ceil(Rent_change.length / 5)
+    this.totalarr = Array.from({ length: this.totalpage }, (_, i) => i)
+  }
+
+  onInputChangepddate(event : any){
+    const inputValue = event.target.value;
+    console.log(inputValue);
+    let Rent_change : any = []
+    for(let i = 0; i < this.Rent.length; i++){
+      if(this.Rent[i].DueDate.split('T')[0] == inputValue){
         Rent_change.push(this.Rent[i])
       }
     }
