@@ -39,4 +39,12 @@ export class SharedService {
     return this.http.get<any>(this.APIUrl + 'Author/' + authorId)
   }
 
+  loadReaderName(ReaderID : any){
+    return this.http.get<any>(this.APIUrl + 'Reader/' + ReaderID)
+  }
+
+  loadLibrarianName(LibrarianID : any){
+    return this.http.get<any>(this.APIUrl + 'Librarian/' + LibrarianID)
+  }
+
 }

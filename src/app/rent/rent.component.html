@@ -18,18 +18,54 @@
             <div class="card-body">
                 <table>
                     <thead>
+                      <tr>
                         <th>RentID</th>
-                        <th>LibrarianID</th>
-                        <th>ReaderID</th>
+                        <th>LibrarianName</th>
+                        <th>ReaderName</th>
                         <th>Rent Date</th>
                         <th>Due Date</th>
                         <th>Status</th>
+                      </tr>
+                      <tr>
+                        <th><input type="text" id="rid-input" list="rid-list" placeholder="Search by ID" (input)="onInputChangerid($event)">
+                          <datalist id="rid-list">
+                            <option value="Back">
+                            <option value="1 to n">
+                            <option value="n to 1">
+                          </datalist>
+                        </th>
+                        <th><input type="text" id="lname-input" list="lname-list" placeholder="Search LibrarianName" (input)="onInputChangeln($event)">
+                          <datalist id="lname-list">
+                            <option value="Back">
+                            <option value="In alphabetical order">
+                            <option value="In reverse alphabetical order">
+                          </datalist>                            
+                        </th>
+                        <th><input type="text" id="rname-input" list="rname-list" placeholder="Search ReaderName" (input)="onInputChangern($event)">
+                          <datalist id="rname-list">
+                            <option value="Back">
+                            <option value="In alphabetical order">
+                            <option value="In reverse alphabetical order">
+                          </datalist>                            
+                        </th>
+                        <th><input type="date" id="rdate-input" placeholder="Search RentDate" (input)="onInputChangepdate($event)">
+                        </th>
+                        <th><input type="date" id="ddate-input" placeholder="Search DueDate" (input)="onInputChangepdate($event)">
+                        </th>
+                        <th><input type="text" id="due-input" list="due-list" placeholder="List Due" (input)="onInputChangedue($event)">
+                          <datalist id="due-list">
+                            <option value="Back">
+                            <option value="UnDue">
+                            <option value="OverDue">
+                          </datalist>
+                        </th>
+                      </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let item of ListRent">
                             <td>{{item.RentID}}</td>
-                            <td>{{item.LibrarianID}}</td>
-                            <td>{{item.ReaderID}}</td>
+                            <td>{{item.LibrarianName}}</td>
+                            <td>{{item.ReaderName}}</td>
                             <td>{{item.RentDate}}</td>
                             <td>{{item.DueDate}}</td>
                             <td *ngIf="currentDateTimeString <= item.DueDate" [ngClass]="'Pending'">UnDue</td>
